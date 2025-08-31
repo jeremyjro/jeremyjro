@@ -1,2 +1,2 @@
-# mywebsite
+# jeremyjro.com
 Jeremy's personal website
