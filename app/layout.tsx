@@ -1,9 +1,22 @@
-export const metadata = { title: "Jeremy Ro", description: "Personal website" };
+import type { Metadata } from "next";
+import { Space_Mono } from "next/font/google";
+import "./globals.css";
+
+const mono = Space_Mono({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+  display: "swap",
+});
+
+export const metadata: Metadata = {
+  title: "Jeremy Ro",
+  description: "Founder, Virio",
+};
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body style={{ margin: 0, fontFamily: "system-ui, sans-serif" }}>{children}</body>
+    <html lang="en" className={mono.className}>
+      <body>{children}</body>
     </html>
   );
 }

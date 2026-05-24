@@ -1,0 +1,104 @@
+.main {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+}
+
+.container {
+  width: 100%;
+  max-width: 420px;
+}
+
+/* ── Header ── */
+
+.header {
+  margin-bottom: 1.75rem;
+}
+
+.name {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: lowercase;
+  color: #1A1817;
+}
+
+.rule {
+  margin-top: 0.6rem;
+  color: #D4CDBF;
+  font-size: 0.8rem;
+  letter-spacing: 0;
+  line-height: 1;
+  user-select: none;
+}
+
+/* ── About ── */
+
+.about {
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: #2E2B28;
+}
+
+.muted {
+  color: #9A948C;
+}
+
+.accentLink {
+  color: #2E2B28;
+  border-bottom: 1px solid #C4B89A;
+  padding-bottom: 1px;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.accentLink:hover {
+  color: #8B6F47;
+  border-color: #8B6F47;
+}
+
+/* ── Spacer ── */
+
+.spacer {
+  height: 2.5rem;
+}
+
+/* ── Sections ── */
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label {
+  font-size: 0.6875rem;
+  letter-spacing: 0.2em;
+  text-transform: lowercase;
+  color: #B5AFA6;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.link {
+  font-size: 0.8125rem;
+  color: #2E2B28;
+  transition: color 0.15s ease;
+  display: block;
+}
+
+.link:hover {
+  color: #8B6F47;
+}
