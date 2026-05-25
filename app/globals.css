@@ -5,10 +5,16 @@
 }
 
 html, body {
-  background-color: #F5F2EC;
+  background-color: #0a0a0a;
   color: #1A1817;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Smooth scroll for anchor links */
+html {
+  scroll-behavior: smooth;
 }
 
 a {

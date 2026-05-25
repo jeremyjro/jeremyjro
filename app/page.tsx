@@ -1,74 +1,80 @@
 import styles from "./page.module.css";
+import AsciiVideo from "./ascii-video";
+
+// Replace with your own video — ideally a short loop of yourself or cinematic footage.
+// Must be CORS-enabled if hosted externally, or place in /public as /video.mp4.
+const VIDEO_SRC =
+  "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.container}>
+    <div className={styles.root}>
 
-        {/* ── Name ── */}
-        <header className={styles.header}>
-          <h1 className={styles.name}>jeremy ro</h1>
-          <div className={styles.rule}>
-            {"─".repeat(32)}
-          </div>
-        </header>
+      {/* ── Hero: ASCII video ── */}
+      <section className={styles.hero}>
+        <div className={styles.videoWrap}>
+          <AsciiVideo src={VIDEO_SRC} />
+        </div>
 
-        {/* ── About ── */}
-        <section className={styles.about}>
-          <p>founder, <a href="https://virio.ai" className={styles.accentLink}>virio</a></p>
-          <p className={styles.muted}>building ai for linkedin</p>
-        </section>
+        <div className={styles.heroText}>
+          <h1 className={styles.heroName}>jeremy ro</h1>
+        </div>
 
-        <div className={styles.spacer} />
+        <a href="#about" className={styles.scrollHint} aria-label="Scroll down">
+          ↓
+        </a>
+      </section>
 
-        {/* ── Writing ── */}
-        <section className={styles.section}>
-          <p className={styles.label}>writing</p>
-          <div className={styles.rule} />
-          <ul className={styles.list}>
-            <li>
-              <a
-                href="https://www.linkedin.com/in/jeremyro/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.link}
-              >
-                → notes on linkedin
+      {/* ── Content: parchment ── */}
+      <section id="about" className={styles.content}>
+        <div className={styles.inner}>
+
+          <div className={styles.about}>
+            <p>
+              founder,{" "}
+              <a href="https://virio.ai" className={styles.accentLink} target="_blank" rel="noopener noreferrer">
+                virio
               </a>
-            </li>
-          </ul>
-        </section>
+            </p>
+            <p className={styles.muted}>building ai for linkedin</p>
+          </div>
 
-        <div className={styles.spacer} />
+          <div className={styles.gap} />
 
-        {/* ── Links ── */}
-        <section className={styles.section}>
-          <p className={styles.label}>elsewhere</p>
-          <div className={styles.rule} />
-          <nav className={styles.list}>
-            <a
-              href="https://github.com/jeremyjro"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.link}
-            >
-              → github
-            </a>
+          <div className={styles.section}>
+            <p className={styles.label}>writing</p>
+            <div className={styles.rule}>{"─".repeat(32)}</div>
             <a
               href="https://www.linkedin.com/in/jeremyro/"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.link}
             >
-              → linkedin
+              → notes on linkedin
             </a>
-            <a href="mailto:jeremy@virio.ai" className={styles.link}>
-              → jeremy@virio.ai
-            </a>
-          </nav>
-        </section>
+          </div>
 
-      </div>
-    </main>
+          <div className={styles.gap} />
+
+          <div className={styles.section}>
+            <p className={styles.label}>elsewhere</p>
+            <div className={styles.rule}>{"─".repeat(32)}</div>
+            <nav className={styles.linkList}>
+              <a href="https://github.com/jeremyjro" target="_blank" rel="noopener noreferrer" className={styles.link}>
+                → github
+              </a>
+              <a href="https://www.linkedin.com/in/jeremyro/" target="_blank" rel="noopener noreferrer" className={styles.link}>
+                → linkedin
+              </a>
+              <a href="mailto:jeremy@virio.ai" className={styles.link}>
+                → jeremy@virio.ai
+              </a>
+            </nav>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
   );
 }

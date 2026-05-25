@@ -1,43 +1,85 @@
-.main {
+.root {
   min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 3rem 2rem;
 }
 
-.container {
+/* ── Hero ── */
+
+.hero {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #0a0a0a;
+}
+
+.videoWrap {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Force the canvas to fill its container */
+.videoWrap > div,
+.videoWrap canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+.heroText {
+  position: absolute;
+  bottom: 3rem;
+  left: 3rem;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.heroName {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  color: rgba(245, 242, 236, 0.85);
+  margin: 0;
+  text-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
+}
+
+.scrollHint {
+  position: absolute;
+  bottom: 2.75rem;
+  right: 3rem;
+  z-index: 10;
+  color: rgba(245, 242, 236, 0.45);
+  font-size: 0.875rem;
+  text-decoration: none;
+  animation: pulse 2.5s ease-in-out infinite;
+  transition: color 0.2s;
+}
+
+.scrollHint:hover {
+  color: rgba(245, 242, 236, 0.9);
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; transform: translateY(0); }
+  50%       { opacity: 0.8; transform: translateY(4px); }
+}
+
+/* ── Content ── */
+
+.content {
+  background: #F5F2EC;
+  padding: 5rem 3rem 6rem;
+  display: flex;
+  justify-content: center;
+}
+
+.inner {
   width: 100%;
   max-width: 420px;
 }
 
-/* ── Header ── */
-
-.header {
-  margin-bottom: 1.75rem;
-}
-
-.name {
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 0.25em;
-  text-transform: lowercase;
-  color: #1A1817;
-}
-
-.rule {
-  margin-top: 0.6rem;
-  color: #D4CDBF;
-  font-size: 0.8rem;
-  letter-spacing: 0;
-  line-height: 1;
-  user-select: none;
-}
-
-/* ── About ── */
-
 .about {
-  margin-bottom: 0;
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
@@ -54,7 +96,7 @@
   color: #2E2B28;
   border-bottom: 1px solid #C4B89A;
   padding-bottom: 1px;
-  transition: border-color 0.15s ease, color 0.15s ease;
+  transition: color 0.15s, border-color 0.15s;
 }
 
 .accentLink:hover {
@@ -62,13 +104,9 @@
   border-color: #8B6F47;
 }
 
-/* ── Spacer ── */
-
-.spacer {
+.gap {
   height: 2.5rem;
 }
-
-/* ── Sections ── */
 
 .section {
   display: flex;
@@ -79,23 +117,26 @@
 .label {
   font-size: 0.6875rem;
   letter-spacing: 0.2em;
-  text-transform: lowercase;
   color: #B5AFA6;
 }
 
-.list {
+.rule {
+  color: #D4CDBF;
+  font-size: 0.8rem;
+  line-height: 1;
+  user-select: none;
+}
+
+.linkList {
   display: flex;
   flex-direction: column;
   gap: 0.45rem;
-  list-style: none;
-  padding: 0;
-  margin: 0;
 }
 
 .link {
   font-size: 0.8125rem;
   color: #2E2B28;
-  transition: color 0.15s ease;
+  transition: color 0.15s;
   display: block;
 }
 
