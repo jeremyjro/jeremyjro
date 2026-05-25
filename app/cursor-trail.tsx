@@ -2,19 +2,12 @@
 
 import { useEffect, useRef } from "react";
 
-// Color theory: trail rotates ~180° around the color wheel (warm → cool).
-// Starting hue: 28° (amber) — matches the site's warm accent palette.
-// Each trail dot steps 8° forward, so across 22 dots the trail covers
-// amber → yellow-green → teal → blue — a warm-to-cool analogous sweep
-// that demonstrates complementary contrast at its tail end.
-const TRAIL_LEN  = 22;
-const BASE_HUE   = 28;   // amber
-const HUE_STEP   = 8;    // degrees per dot
-const HEAD_R     = 4.5;  // cursor dot radius (px)
+const HEAD_R       = 10;    // bigger cursor dot
+const FADE_MS      = 500;   // trail dissolves over 500ms after last move
 
 export default function CursorTrail() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const pts       = useRef<{ x: number; y: number }[]>([]);
+  const pts       = useRef<{ x: number; y: number; t: number }[]>([]);
   const mouse     = useRef({ x: -300, y: -300 });
   const visible   = useRef(false);
   const raf       = useRef<number>(0);
@@ -33,9 +26,9 @@ export default function CursorTrail() {
     window.addEventListener("resize", resize);
 
     const onMove = (e: MouseEvent) => {
-      visible.current   = true;
-      mouse.current     = { x: e.clientX, y: e.clientY };
-      pts.current       = [{ x: e.clientX, y: e.clientY }, ...pts.current].slice(0, TRAIL_LEN);
+      visible.current = true;
+      mouse.current   = { x: e.clientX, y: e.clientY };
+      pts.current     = [{ x: e.clientX, y: e.clientY, t: Date.now() }, ...pts.current];
     };
     const onLeave = () => { visible.current = false; };
     const onEnter = () => { visible.current = true; };
@@ -47,27 +40,32 @@ export default function CursorTrail() {
     const tick = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      if (visible.current) {
-        // Trail dots (oldest → freshest, drawn back to front)
-        [...pts.current].reverse().forEach((p, ri) => {
-          const i     = TRAIL_LEN - 1 - ri;
-          const t     = i / TRAIL_LEN;
-          const hue   = (BASE_HUE + i * HUE_STEP) % 360;
-          const r     = HEAD_R * (1 - t * 0.65);
-          const alpha = (1 - t) * 0.85;
+      const now = Date.now();
+
+      // Drop expired trail points
+      pts.current = pts.current.filter(p => now - p.t < FADE_MS);
+
+      if (visible.current || pts.current.length > 0) {
+        // Trail — drawn oldest to newest so newer dots render on top
+        [...pts.current].reverse().forEach(p => {
+          const age   = (now - p.t) / FADE_MS;        // 0 = fresh, 1 = gone
+          const alpha = (1 - age) * 0.55;
+          const r     = HEAD_R * (0.3 + 0.7 * (1 - age));
 
           ctx.beginPath();
           ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
-          ctx.fillStyle = `hsla(${hue}, 82%, 58%, ${alpha})`;
+          ctx.fillStyle = `hsla(22, 95%, 58%, ${alpha})`;
           ctx.fill();
         });
 
-        // Cursor head — solid amber dot
-        const { x, y } = mouse.current;
-        ctx.beginPath();
-        ctx.arc(x, y, HEAD_R, 0, Math.PI * 2);
-        ctx.fillStyle = `hsl(${BASE_HUE}, 88%, 62%)`;
-        ctx.fill();
+        // Cursor head — solid orange dot
+        if (visible.current) {
+          const { x, y } = mouse.current;
+          ctx.beginPath();
+          ctx.arc(x, y, HEAD_R, 0, Math.PI * 2);
+          ctx.fillStyle = "hsla(22, 95%, 58%, 0.75)";
+          ctx.fill();
+        }
       }
 
       raf.current = requestAnimationFrame(tick);
