@@ -41,7 +41,7 @@ export default function CursorTrail() {
         const { x, y } = mouse.current;
         ctx.beginPath();
         ctx.arc(x, y, HEAD_R, 0, Math.PI * 2);
-        ctx.fillStyle = "hsla(40, 30%, 96%, 0.72)";
+        ctx.fillStyle = "hsla(210, 80%, 75%, 0.45)";
         ctx.fill();
       }
 
