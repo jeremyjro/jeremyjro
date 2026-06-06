@@ -115,6 +115,10 @@ export default function CompPage() {
                 <span className={styles.badge}>$132K–$241K</span>
               </div>
               <p className={styles.sourceText}>Analysis of 1,000+ postings shows top-quartile growth-stage SaaS paying $170K–$220K base plus $40–80K in RSUs, with AI-specialized engineers commanding a documented 23% premium. GTM engineering job postings grew 205% YoY in 2025 — supply still lags demand and comp is trending up.</p>
+              <div className={styles.sourceLinks}>
+                <a href="https://www.apollo.io/blog/gtm-engineer" target="_blank" rel="noopener noreferrer" className={styles.sourceLink}>apollo.io/blog/gtm-engineer ↗</a>
+                <a href="https://syncgtm.com/gtm-engineer-salary" target="_blank" rel="noopener noreferrer" className={styles.sourceLink}>syncgtm.com/gtm-engineer-salary ↗</a>
+              </div>
             </div>
 
             <div className={styles.sourceCard}>
@@ -123,6 +127,11 @@ export default function CompPage() {
                 <span className={styles.badge}>$184K–$252K</span>
               </div>
               <p className={styles.sourceText}>OpenAI posts GTM/Growth Engineering at $250K base; Vercel, Ramp, and Stripe cluster at $184–252K. A $200K ask sits below OpenAI's floor and is supported by AfterQuery's deal complexity and direct pipeline-to-revenue link.</p>
+              <div className={styles.sourceLinks}>
+                <a href="https://www.levels.fyi/companies/openai/salaries/software-engineer/levels/l5/" target="_blank" rel="noopener noreferrer" className={styles.sourceLink}>levels.fyi — OpenAI ↗</a>
+                <a href="https://www.levels.fyi/companies/vercel/salaries/" target="_blank" rel="noopener noreferrer" className={styles.sourceLink}>levels.fyi — Vercel ↗</a>
+                <a href="https://www.levels.fyi/companies/ramp/salaries/" target="_blank" rel="noopener noreferrer" className={styles.sourceLink}>levels.fyi — Ramp ↗</a>
+              </div>
             </div>
 
             <div className={styles.sourceCard}>
@@ -131,6 +140,10 @@ export default function CompPage() {
                 <span className={styles.badge}>$200K+ justified</span>
               </div>
               <p className={styles.sourceText}>Verkada (2025) automated 80% of SDR workflows with GTM engineers, boosting meetings from ~20 to 80–100 per rep per month. For $5–30M ACV deals, a single attributed close generates 25–150× the annual cost of the role.</p>
+              <div className={styles.sourceLinks}>
+                <a href="https://www.emarketer.com/topics/category/b2b" target="_blank" rel="noopener noreferrer" className={styles.sourceLink}>emarketer.com ↗</a>
+                <a href="https://2x.marketing/resources" target="_blank" rel="noopener noreferrer" className={styles.sourceLink}>2x.marketing/resources ↗</a>
+              </div>
             </div>
           </div>
         </section>
