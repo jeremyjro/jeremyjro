@@ -121,6 +121,16 @@ export default function CompPage() {
           <div className={styles.insightBox}>
             <p>{insightText(acv, closeRate, attr)}</p>
           </div>
+
+          <ul className={styles.assumptions}>
+            <li><span>Base salary</span> $200,000 — fixed</li>
+            <li><span>ACV</span> average contract value per closed deal (slider)</li>
+            <li><span>SQL → Close Rate</span> % of sales-qualified leads that convert to closed-won (slider)</li>
+            <li><span>Pipeline Attribution</span> % of closed revenue directly attributable to outbound sourced by this role (slider)</li>
+            <li><span>Revenue / SQL</span> ACV × Close Rate × Attribution — expected revenue value of each SQL delivered</li>
+            <li><span>SQLs to break even</span> $200,000 ÷ Revenue per SQL — how many SQLs needed annually to fully cover base</li>
+            <li><span>Payback ratio</span> Revenue per SQL ÷ $200,000 — dollars of attributed revenue per dollar of base salary</li>
+          </ul>
         </section>
 
         {/* ── Market Benchmarks ── */}

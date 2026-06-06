@@ -279,6 +279,31 @@
   font-weight: 300;
 }
 
+/* ── Assumptions ── */
+
+.assumptions {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.assumptions li {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 300;
+  color: #8a8880;
+  line-height: 1.5;
+}
+
+.assumptions li span {
+  font-weight: 500;
+  color: #555550;
+  margin-right: 6px;
+}
+
 /* ── Sources ── */
 
 .sourceList {
