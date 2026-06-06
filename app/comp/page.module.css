@@ -47,6 +47,10 @@
 /* ── Note block ── */
 
 .noteBlock {
+  background: #ffffff;
+  border: 1px solid #e2e0d8;
+  border-radius: 8px;
+  padding: 22px 24px;
   margin-bottom: 52px;
 }
 
@@ -72,17 +76,23 @@
 }
 
 .noteList {
-  list-style: disc;
-  padding-left: 18px;
+  list-style: none;
+  padding: 0;
   margin: 0 0 10px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
 }
 
 .noteList li {
   font-family: 'DM Sans', system-ui, sans-serif;
-  font-size: 13px;
-  font-weight: 300;
-  color: #555550;
-  line-height: 1.65;
+  font-size: 11px;
+  font-weight: 500;
+  color: #111110;
+  background: #f0efe9;
+  border: 1px solid #e2e0d8;
+  border-radius: 20px;
+  padding: 3px 12px;
 }
 
 /* ── Sections ── */
