@@ -47,7 +47,7 @@ export default function CompPage() {
         <div className={styles.noteBlock}>
           <p className={styles.noteHeadline}>I&rsquo;m not a normal SDR.</p>
           <p className={styles.noteBody}>
-            Now that I&rsquo;m thinking about it, I think I&rsquo;m underpricing myself 😢 —
+            Now that I&rsquo;m thinking about it, I think I&rsquo;m underpricing myself 😭 —
             because you&rsquo;re essentially getting:
           </p>
           <ul className={styles.noteList}>
