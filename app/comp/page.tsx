@@ -43,6 +43,25 @@ export default function CompPage() {
           <p className={styles.subtitle}>Pipeline &amp; LinkedIn Growth Lead · Jeremy Ro</p>
         </header>
 
+        {/* ── Note ── */}
+        <div className={styles.noteBlock}>
+          <p className={styles.noteHeadline}>I&rsquo;m not a normal SDR.</p>
+          <p className={styles.noteBody}>
+            Now that I&rsquo;m thinking about it, I think I&rsquo;m underpricing myself 😢 —
+            because you&rsquo;re essentially getting:
+          </p>
+          <ul className={styles.noteList}>
+            <li>Content Marketer</li>
+            <li>Marketing / Sales Ops</li>
+            <li>GTM Engineer</li>
+          </ul>
+          <p className={styles.noteBody}>
+            ...all in one. I&rsquo;ve even built out my own software — a content orchestration
+            platform I used for my agency — to drive pipeline from every single AQ employee&rsquo;s
+            account. Want to show you a demo on a future call.
+          </p>
+        </div>
+
         {/* ── ROI Model ── */}
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>ROI Model</h2>

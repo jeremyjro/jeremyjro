@@ -44,6 +44,58 @@
   font-weight: 300;
 }
 
+/* ── Note block ── */
+
+.noteBlock {
+  background: #ffffff;
+  border: 1px solid #e2e0d8;
+  border-radius: 8px;
+  padding: 22px 24px;
+  margin-bottom: 52px;
+}
+
+.noteHeadline {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-style: italic;
+  font-size: 20px;
+  color: #111110;
+  margin-bottom: 10px;
+  letter-spacing: -0.2px;
+}
+
+.noteBody {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.65;
+  color: #555550;
+  margin-bottom: 10px;
+}
+
+.noteBody:last-child {
+  margin-bottom: 0;
+}
+
+.noteList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 10px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.noteList li {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  color: #111110;
+  background: #f0efe9;
+  border: 1px solid #e2e0d8;
+  border-radius: 20px;
+  padding: 3px 12px;
+}
+
 /* ── Sections ── */
 
 .section {
