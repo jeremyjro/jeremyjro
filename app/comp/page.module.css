@@ -55,12 +55,11 @@
 }
 
 .noteHeadline {
-  font-family: 'DM Serif Display', Georgia, serif;
-  font-style: italic;
-  font-size: 20px;
-  color: #111110;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: #444440;
   margin-bottom: 10px;
-  letter-spacing: -0.2px;
 }
 
 .noteBody {
