@@ -39,7 +39,7 @@ export default function CompPage() {
 
         <header className={styles.header}>
           <p className={styles.eyebrow}>AfterQuery · June 2026</p>
-          <h1 className={styles.title}>GTM Lead<br />Compensation Justification</h1>
+          <h1 className={styles.title}>GTM Lead<br />Compensation</h1>
           <p className={styles.subtitle}>Pipeline &amp; LinkedIn Growth Lead · Jeremy Ro</p>
         </header>
 
