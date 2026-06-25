@@ -4,6 +4,7 @@ import AsciiVideo from "./ascii-video";
 // Replace with your own video — ideally a short loop of yourself or cinematic footage.
 // Must be CORS-enabled if hosted externally, or place in /public as /video.mp4.
 const VIDEO_SRC = "/ascii-hero.mp4";
+const RULE = "─".repeat(44);
 
 export default function Home() {
   return (
@@ -30,45 +31,67 @@ export default function Home() {
 
           <div className={styles.about}>
             <p>
-              founder,{" "}
+              Growth Lead,{" "}
               <a href="https://virio.ai" className={styles.accentLink} target="_blank" rel="noopener noreferrer">
-                virio
+                Virio
               </a>
             </p>
-            <p className={styles.muted}>building ai for linkedin</p>
+            <p className={styles.muted}>Content AI Native Content Agency</p>
           </div>
 
           <div className={styles.gap} />
 
           <div className={styles.section}>
             <p className={styles.label}>writing</p>
-            <div className={styles.rule}>{"─".repeat(32)}</div>
-            <a
-              href="https://www.linkedin.com/in/jeremyro/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.link}
-            >
-              → notes on linkedin
-            </a>
+            <div className={styles.rule}>{RULE}</div>
+            <nav className={styles.linkList}>
+              <a href="https://substack.com/@jeremyrooo" target="_blank" rel="noopener noreferrer" className={styles.link}>
+                → substack
+              </a>
+              <a href="/essays" className={styles.link}>
+                → essays
+              </a>
+            </nav>
           </div>
 
           <div className={styles.gap} />
 
           <div className={styles.section}>
-            <p className={styles.label}>elsewhere</p>
-            <div className={styles.rule}>{"─".repeat(32)}</div>
+            <p className={styles.label}>projects</p>
+            <div className={styles.rule}>{RULE}</div>
             <nav className={styles.linkList}>
-              <a href="https://github.com/jeremyjro" target="_blank" rel="noopener noreferrer" className={styles.link}>
-                → github
+              <a href="/lexie" className={styles.link}>
+                → Lexie.app
               </a>
+            </nav>
+          </div>
+
+          <div className={styles.gap} />
+
+          <div className={styles.section}>
+            <p className={styles.label}>socials</p>
+            <div className={styles.rule}>{RULE}</div>
+            <nav className={styles.linkList}>
               <a href="https://www.linkedin.com/in/jeremyro/" target="_blank" rel="noopener noreferrer" className={styles.link}>
                 → linkedin
               </a>
-              <a href="mailto:jeremy@virio.ai" className={styles.link}>
-                → jeremy@virio.ai
+              <a href="https://www.instagram.com/jeremyrooo/" target="_blank" rel="noopener noreferrer" className={styles.link}>
+                → instagram
+              </a>
+              <a href="https://x.com/jjeremyro" target="_blank" rel="noopener noreferrer" className={styles.link}>
+                → x
               </a>
             </nav>
+          </div>
+
+          <div className={styles.gap} />
+
+          <div className={styles.section}>
+            <p className={styles.label}>contact</p>
+            <div className={styles.rule}>{RULE}</div>
+            <a href="mailto:jjeremyro@gmail.com" className={styles.link}>
+              → jjeremyro@gmail.com
+            </a>
           </div>
 
         </div>

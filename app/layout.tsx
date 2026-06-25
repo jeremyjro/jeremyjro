@@ -11,7 +11,7 @@ const mono = Space_Mono({
 
 export const metadata: Metadata = {
   title: "Jeremy Ro",
-  description: "Founder, Virio",
+  description: "Growth Lead, Virio",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
