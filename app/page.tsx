@@ -3,8 +3,7 @@ import AsciiVideo from "./ascii-video";
 
 // Replace with your own video — ideally a short loop of yourself or cinematic footage.
 // Must be CORS-enabled if hosted externally, or place in /public as /video.mp4.
-const VIDEO_SRC =
-  "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4";
+const VIDEO_SRC = "/ascii-hero.mp4";
 
 export default function Home() {
   return (
