@@ -20,33 +20,40 @@ export default function AsciiVideo({ src }: Props) {
   const [index, setIndex] = useState(0);
   const wrapRef = useRef<HTMLDivElement>(null);
 
-  // Advance to next clip (or loop back) when the hidden <video> fires "ended"
-  const advance = useCallback(() => {
-    setIndex((i) => (i + 1) % playlist.length);
+  // Advance to next clip (or loop back) when the hidden <video> reaches the end
+  const advance = useCallback((fromIndex: number) => {
+    setIndex((currentIndex) => {
+      if (currentIndex !== fromIndex) return currentIndex;
+      return (currentIndex + 1) % playlist.length;
+    });
   }, [playlist.length]);
 
-  // Attach "ended" listener to the hidden <video> rendered by video2ascii.
+  // Attach listeners to the hidden <video> rendered by video2ascii.
   // We poll briefly after mount because the element is created asynchronously.
   useEffect(() => {
     if (playlist.length <= 1) return;
 
     let video: HTMLVideoElement | null = null;
     let attempts = 0;
+    let retry: ReturnType<typeof setTimeout> | undefined;
+    const handleEnded = () => advance(index);
 
     const attach = () => {
       video = wrapRef.current?.querySelector("video") ?? null;
       if (video) {
-        video.addEventListener("ended", advance);
+        video.loop = false;
+        video.addEventListener("ended", handleEnded);
       } else if (attempts < 30) {
         attempts++;
-        setTimeout(attach, 200);
+        retry = setTimeout(attach, 200);
       }
     };
 
     attach();
 
     return () => {
-      video?.removeEventListener("ended", advance);
+      if (retry) clearTimeout(retry);
+      video?.removeEventListener("ended", handleEnded);
     };
   }, [index, advance, playlist.length]);
 
