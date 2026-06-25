@@ -1,9 +1,14 @@
 import styles from "./page.module.css";
 import AsciiVideo from "./ascii-video";
 
-// Replace with your own video — ideally a short loop of yourself or cinematic footage.
-// Must be CORS-enabled if hosted externally, or place in /public as /video.mp4.
-const VIDEO_SRC = "/ascii-hero.mp4";
+// Playlist: plays each clip in order, then loops back to the first.
+// Add, remove, or reorder entries here to change what plays on the hero.
+const VIDEO_SRC = [
+  "/ascii-hero.mp4",
+  "/hero-1.mp4",
+  "/hero-2.mp4",
+  "/hero-3.mp4",
+];
 const RULE = "─".repeat(44);
 
 export default function Home() {
