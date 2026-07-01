@@ -2,18 +2,21 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "next": "^16.2.6",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "video2ascii": "latest"
+    "video2ascii": "1.1.1"
   },
   "devDependencies": {
     "@types/node": "^24.3.0",
     "@types/react": "^19.1.12",
     "@types/react-dom": "^19.1.9",
+    "patch-package": "^8.0.1",
+    "postinstall-postinstall": "^2.1.0",
     "typescript": "^5.9.2"
   }
 }
