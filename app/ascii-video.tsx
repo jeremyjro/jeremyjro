@@ -6,7 +6,7 @@ import dynamic from "next/dynamic";
 // video2ascii uses WebGL — must be client-only, no SSR
 const V2A = dynamic(() => import("video2ascii"), {
   ssr: false,
-  loading: () => <div style={{ width: "100%", height: "100%", background: "#0a0a0a" }} />,
+  loading: () => <div style={{ width: "100%", height: "100%", background: "#ffffff" }} />,
 });
 
 interface Props {

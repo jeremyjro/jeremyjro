@@ -9,7 +9,7 @@
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  background: #0a0a0a;
+  background: #ffffff;
 }
 
 .videoWrap {
@@ -70,7 +70,7 @@
 /* ── Content ── */
 
 .content {
-  background: #F5F2EC;
+  background: #ffffff;
   padding: 5rem clamp(1.5rem, 7vw, 6rem) 6rem;
   display: flex;
   justify-content: center;
@@ -148,7 +148,7 @@
 
 .subPage {
   min-height: 100vh;
-  background: #F5F2EC;
+  background: #ffffff;
   padding: clamp(3rem, 9vw, 6rem) clamp(1.5rem, 7vw, 6rem);
   color: #2E2B28;
 }
