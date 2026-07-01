@@ -41,9 +41,8 @@
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.35em;
-  color: rgba(245, 242, 236, 0.85);
+  color: #000000;
   margin: 0;
-  text-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
 }
 
 .scrollHint {

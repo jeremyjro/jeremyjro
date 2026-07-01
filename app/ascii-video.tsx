@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import dynamic from "next/dynamic";
 
 // video2ascii uses WebGL — must be client-only, no SSR
@@ -20,29 +20,30 @@ export default function AsciiVideo({ src }: Props) {
   const [index, setIndex] = useState(0);
   const wrapRef = useRef<HTMLDivElement>(null);
 
-  // Advance to next clip (or loop back) when the hidden <video> reaches the end
-  const advance = useCallback((fromIndex: number) => {
-    setIndex((currentIndex) => {
-      if (currentIndex !== fromIndex) return currentIndex;
-      return (currentIndex + 1) % playlist.length;
-    });
-  }, [playlist.length]);
-
-  // Attach listeners to the hidden <video> rendered by video2ascii.
-  // We poll briefly after mount because the element is created asynchronously.
+  // Advance clips by swapping the hidden <video>'s src in place rather than
+  // remounting the WebGL component. The same canvas stays mounted and keeps the
+  // last frame while the next clip loads, so there is no blank gap between clips.
   useEffect(() => {
     if (playlist.length <= 1) return;
 
     let video: HTMLVideoElement | null = null;
     let attempts = 0;
     let retry: ReturnType<typeof setTimeout> | undefined;
-    const handleEnded = () => advance(index);
+
+    const handleEnded = () => setIndex((i) => (i + 1) % playlist.length);
+    const handleLoaded = () => {
+      if (video) {
+        video.loop = false;
+        video.play().catch(() => {});
+      }
+    };
 
     const attach = () => {
       video = wrapRef.current?.querySelector("video") ?? null;
       if (video) {
         video.loop = false;
         video.addEventListener("ended", handleEnded);
+        video.addEventListener("loadedmetadata", handleLoaded);
       } else if (attempts < 30) {
         attempts++;
         retry = setTimeout(attach, 200);
@@ -54,15 +55,13 @@ export default function AsciiVideo({ src }: Props) {
     return () => {
       if (retry) clearTimeout(retry);
       video?.removeEventListener("ended", handleEnded);
+      video?.removeEventListener("loadedmetadata", handleLoaded);
     };
-  }, [index, advance, playlist.length]);
+  }, [playlist.length]);
 
   return (
-    // key forces a clean remount of V2A each time the clip changes,
-    // so video2ascii reinitialises WebGL with the new src.
     <div ref={wrapRef} style={{ width: "100%", height: "100%" }}>
       <V2A
-        key={`${index}-${playlist[index]}`}
         src={playlist[index]}
         numColumns={184}
         colored
