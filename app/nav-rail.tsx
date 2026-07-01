@@ -16,8 +16,8 @@ export default function NavRail() {
           src="/jeremy-face.jpg"
           alt="Jeremy Ro"
           className={styles.face}
-          width={76}
-          height={76}
+          width={60}
+          height={60}
         />
         <ul className={styles.list}>
           {LINKS.map((l) => (
