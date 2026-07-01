@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import NavRail from "./nav-rail";
 
 const lineSeed = localFont({
   src: [
@@ -21,6 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={lineSeed.className}>
       <body>
+        <NavRail />
         {children}
       </body>
     </html>
