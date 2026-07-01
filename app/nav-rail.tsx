@@ -2,7 +2,7 @@ import styles from "./nav-rail.module.css";
 
 const LINKS = [
   { label: "jro", href: "/" },
-  { label: "work", href: "/comp" },
+  { label: "work", href: "" },
   { label: "projects", href: "/lexie" },
   { label: "writing", href: "/essays" },
 ];
@@ -21,10 +21,14 @@ export default function NavRail() {
         />
         <ul className={styles.list}>
           {LINKS.map((l) => (
-            <li key={l.href}>
-              <a href={l.href} className={styles.link}>
-                {l.label}
-              </a>
+            <li key={l.label}>
+              {l.href ? (
+                <a href={l.href} className={styles.link}>
+                  {l.label}
+                </a>
+              ) : (
+                <span className={styles.link}>{l.label}</span>
+              )}
             </li>
           ))}
         </ul>
