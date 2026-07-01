@@ -2,7 +2,7 @@ import styles from "./nav-rail.module.css";
 
 const LINKS = [
   { label: "jro", href: "/" },
-  { label: "work", href: "" },
+  { label: "work", href: "/work" },
   { label: "projects", href: "/lexie" },
   { label: "writing", href: "/essays" },
 ];
