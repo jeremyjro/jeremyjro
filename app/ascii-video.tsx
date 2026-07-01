@@ -64,7 +64,7 @@ export default function AsciiVideo({ src }: Props) {
       <V2A
         key={`${index}-${playlist[index]}`}
         src={playlist[index]}
-        numColumns={160}
+        numColumns={184}
         colored
         brightness={1.05}
         charset="detailed"
