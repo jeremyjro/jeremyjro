@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 
-const HEAD_R = 10;
+const HEAD_R = 6;
 
 export default function CursorTrail() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -41,7 +41,7 @@ export default function CursorTrail() {
         const { x, y } = mouse.current;
         ctx.beginPath();
         ctx.arc(x, y, HEAD_R, 0, Math.PI * 2);
-        ctx.fillStyle = "hsla(210, 80%, 75%, 0.45)";
+        ctx.fillStyle = "hsla(28, 55%, 55%, 0.45)";
         ctx.fill();
       }
 
