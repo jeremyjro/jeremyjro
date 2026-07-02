@@ -3,11 +3,10 @@ import localFont from "next/font/local";
 import "./globals.css";
 import NavRail from "./nav-rail";
 
-const raleway = localFont({
-  src: [
-    { path: "./fonts/Raleway-VariableFont_wght.ttf", weight: "100 900", style: "normal" },
-    { path: "./fonts/Raleway-Italic-VariableFont_wght.ttf", weight: "100 900", style: "italic" },
-  ],
+const inconsolata = localFont({
+  src: "./fonts/Inconsolata-VariableFont_wdth,wght.ttf",
+  weight: "200 900",
+  style: "normal",
   display: "swap",
 });
 
@@ -18,7 +17,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={raleway.className}>
+    <html lang="en" className={inconsolata.className}>
       <body>
         <NavRail />
         {children}
