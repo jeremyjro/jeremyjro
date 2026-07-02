@@ -3,12 +3,10 @@ import localFont from "next/font/local";
 import "./globals.css";
 import NavRail from "./nav-rail";
 
-const lineSeed = localFont({
+const raleway = localFont({
   src: [
-    { path: "./fonts/LINESeedJP-Thin.ttf", weight: "100", style: "normal" },
-    { path: "./fonts/LINESeedJP-Regular.ttf", weight: "400", style: "normal" },
-    { path: "./fonts/LINESeedJP-Bold.ttf", weight: "700", style: "normal" },
-    { path: "./fonts/LINESeedJP-ExtraBold.ttf", weight: "800", style: "normal" },
+    { path: "./fonts/Raleway-VariableFont_wght.ttf", weight: "100 900", style: "normal" },
+    { path: "./fonts/Raleway-Italic-VariableFont_wght.ttf", weight: "100 900", style: "italic" },
   ],
   display: "swap",
 });
@@ -20,7 +18,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={lineSeed.className}>
+    <html lang="en" className={raleway.className}>
       <body>
         <NavRail />
         {children}
