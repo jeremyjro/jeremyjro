@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import styles from "../page.module.css";
+import WritingList from "../writing-list";
 
 export const metadata: Metadata = {
   title: "Work · Jeremy Ro",
@@ -29,14 +30,7 @@ export default function WorkPage() {
         <div className={styles.section}>
           <p className={styles.label}>writing</p>
           <div className={styles.rule}>{RULE}</div>
-          <nav className={styles.linkList}>
-            <a href="https://substack.com/@jeremyrooo" target="_blank" rel="noopener noreferrer" className={styles.link}>
-              → substack
-            </a>
-            <a href="/essays" className={styles.link}>
-              → essays
-            </a>
-          </nav>
+          <WritingList />
         </div>
 
         <div className={styles.gap} />
