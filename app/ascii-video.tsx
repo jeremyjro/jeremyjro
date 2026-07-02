@@ -63,7 +63,7 @@ export default function AsciiVideo({ src }: Props) {
     <div ref={wrapRef} style={{ width: "100%", height: "100%" }}>
       <V2A
         src={playlist[index]}
-        numColumns={60}
+        numColumns={140}
         colored
         brightness={1.05}
         charset="detailed"
